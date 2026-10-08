@@ -5,8 +5,7 @@ import type {
 
 import './Card.css'
 
-interface CardSectionProps
-  extends HTMLAttributes<HTMLDivElement> {}
+type CardSectionProps = HTMLAttributes<HTMLDivElement>
 
 function CardHeader({
   children,
@@ -53,8 +52,7 @@ function CardFooter({
   )
 }
 
-interface CardProps
-  extends HTMLAttributes<HTMLDivElement> {}
+type CardProps = HTMLAttributes<HTMLDivElement>
 
 type CardComponent = (
   (props: CardProps) => ReactElement

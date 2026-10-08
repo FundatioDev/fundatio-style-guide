@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './TypographyScale.css'
 
 interface TypographyScaleProps {
@@ -8,15 +8,13 @@ interface TypographyScaleProps {
 }
 
 function TypographyScale({ name, sample }: TypographyScaleProps) {
-  const [value, setValue] = useState('')
-
-  useEffect(() => {
-    const cssValue = getComputedStyle(document.documentElement)
+  const [value] = useState(() =>
+   getComputedStyle(document.documentElement)
       .getPropertyValue(name)
-      .trim()
+      .trim(),
+  )
 
-    setValue(cssValue)
-  }, [name])
+  
 
   return (
     <article className="typography-scale">
