@@ -1,0 +1,45 @@
+
+.color-swatch {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-elevated);
+}
+
+.color-swatch-preview {
+  min-height: 120px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.color-swatch-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.color-swatch-name,
+.color-swatch-token,
+.color-swatch-value {
+  margin: 0;
+}
+
+.color-swatch-name {
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.color-swatch-token,
+.color-swatch-value {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+.color-swatch-token {
+  color: var(--color-text-muted);
+}
+
+.color-swatch-value {
+  color: var(--color-text);
+}

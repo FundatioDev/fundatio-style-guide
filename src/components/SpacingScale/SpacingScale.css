@@ -1,0 +1,42 @@
+
+.spacing-scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.spacing-scale-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.spacing-scale-name {
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.spacing-scale-value {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+.spacing-scale-track {
+  min-height: 24px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-elevated);
+}
+
+.spacing-scale-bar {
+  min-width: 2px;
+  height: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--color-text);
+}

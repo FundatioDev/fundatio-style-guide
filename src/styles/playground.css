@@ -1,0 +1,1011 @@
+/* =========================================================
+   ESTRUTURA PRINCIPAL
+   ========================================================= */
+
+/*
+ * `.app-shell`
+ *
+ * Cria a estrutura principal da aplicação.
+ *
+ * `min-height: 100vh`
+ * Faz a aplicação ocupar, no mínimo, toda a altura da janela.
+ *
+ * `display: grid`
+ * Ativa CSS Grid para organizar sidebar e conteúdo.
+ *
+ * `grid-template-columns`
+ * Define duas colunas:
+ * - 260px para a sidebar
+ * - o restante do espaço para o conteúdo
+ *
+ * `background`
+ * Usa a cor de fundo principal definida nos tokens.
+ */
+.app-shell {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+
+  background: var(--color-background);
+}
+
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+
+/*
+ * `.sidebar`
+ *
+ * Define a barra lateral de navegação.
+ *
+ * `position: sticky`
+ * Mantém a sidebar visível durante a rolagem.
+ *
+ * `top: 0`
+ * Faz a sidebar permanecer encostada ao topo.
+ *
+ * `height: 100vh`
+ * Ocupa toda a altura da viewport.
+ *
+ * `display: flex`
+ * Permite organizar marca, navegação e rodapé verticalmente.
+ */
+.sidebar {
+  position: sticky;
+  top: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  border-right: 1px solid var(--color-border);
+
+  background: var(--color-background);
+}
+
+
+/*
+ * `.sidebar-brand`
+ *
+ * Área superior da sidebar contendo a marca FUNDATIO.
+ *
+ * `height`
+ * Define a altura do cabeçalho.
+ *
+ * `align-items: center`
+ * Centraliza verticalmente o conteúdo.
+ *
+ * `gap`
+ * Define o espaço entre o símbolo e o nome.
+ */
+.sidebar-brand {
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+
+  gap: var(--space-3);
+
+  padding: 0 var(--space-6);
+
+  border-bottom: 1px solid var(--color-border);
+
+  color: var(--color-text);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+
+/*
+ * `.brand-mark`
+ *
+ * Cria o pequeno símbolo "F" da marca.
+ *
+ * `display: grid` + `place-items: center`
+ * Centraliza o "F" horizontal e verticalmente.
+ */
+.brand-mark {
+  display: grid;
+  place-items: center;
+
+  width: 24px;
+  height: 24px;
+
+  border: 1px solid var(--color-text);
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-family-serif);
+  font-size: var(--font-size-sm);
+}
+
+
+/*
+ * `.sidebar-nav`
+ *
+ * Área que contém os links de navegação.
+ *
+ * `flex: 1`
+ * Faz a navegação ocupar o espaço disponível entre
+ * o cabeçalho e o rodapé.
+ *
+ * `overflow-y: auto`
+ * Permite rolagem caso a lista fique maior que a tela.
+ */
+.sidebar-nav {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: var(--space-6) var(--space-3);
+}
+
+
+/*
+ * `.nav-group`
+ *
+ * Agrupa links relacionados, como "Fundamentos"
+ * e "Componentes".
+ */
+.nav-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-1);
+
+  margin-bottom: var(--space-8);
+}
+
+
+/*
+ * `.nav-group-title`
+ *
+ * Estiliza o título de cada grupo da navegação.
+ *
+ * `text-transform: uppercase`
+ * Transforma o texto em letras maiúsculas.
+ *
+ * `letter-spacing`
+ * Aumenta o espaçamento para criar aparência de label.
+ */
+.nav-group-title {
+  padding: 0 var(--space-3);
+
+  margin-bottom: var(--space-2);
+
+  color: var(--color-text);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+
+/*
+ * `.nav-item`
+ *
+ * Estilo base dos links da sidebar.
+ */
+.nav-item {
+  display: block;
+
+  padding: var(--space-2) var(--space-3);
+
+  border-radius: var(--radius-md);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+
+  text-decoration: none;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+
+/*
+ * `.nav-item:hover`
+ *
+ * Muda a aparência do link quando o cursor passa sobre ele.
+ */
+.nav-item:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+
+/*
+ * `.nav-item-active`
+ *
+ * Indica visualmente qual item está ativo.
+ */
+.nav-item-active {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+
+/*
+ * `.sidebar-footer`
+ *
+ * Rodapé da sidebar.
+ *
+ * `justify-content: space-between`
+ * Coloca o nome do Style Guide de um lado
+ * e a versão do outro.
+ */
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--space-4) var(--space-6);
+
+  border-top: 1px solid var(--color-border);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+
+/* =========================================================
+   ÁREA PRINCIPAL
+   ========================================================= */
+
+/*
+ * `.app-content`
+ *
+ * Contém a topbar e todo o conteúdo principal.
+ *
+ * `min-width: 0`
+ * Permite que o conteúdo dentro do Grid encolha
+ * corretamente sem criar overflow horizontal.
+ */
+.app-content {
+  min-width: 0;
+}
+
+
+/*
+ * `.topbar`
+ *
+ * Barra superior fixa durante a rolagem.
+ *
+ * `position: sticky`
+ * Mantém a barra no topo.
+ *
+ * `z-index`
+ * Faz a topbar ficar acima do conteúdo.
+ *
+ * `backdrop-filter`
+ * Cria o efeito de desfoque no conteúdo atrás da barra.
+ */
+.topbar {
+  position: sticky;
+  top: 0;
+
+  z-index: 10;
+
+  height: 64px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 var(--space-8);
+
+  border-bottom: 1px solid var(--color-border);
+
+  background: rgba(6, 8, 2, 0.92);
+
+  backdrop-filter: blur(12px);
+}
+
+
+/*
+ * `.topbar-search`
+ *
+ * Representação visual do campo de busca da topbar.
+ */
+.topbar-search {
+  width: 260px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: var(--space-2) var(--space-3);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+
+/*
+ * `.topbar-search kbd`
+ *
+ * Estiliza a indicação do atalho de teclado.
+ */
+.topbar-search kbd {
+  padding: 2px 6px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+
+/*
+ * `.topbar-actions button`
+ *
+ * Estiliza o botão localizado no lado direito da topbar.
+ *
+ * `border-radius: full`
+ * Transforma o botão em um círculo.
+ */
+.topbar-actions button {
+  width: 36px;
+  height: 36px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+
+  background: transparent;
+  color: var(--color-text-muted);
+
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
+}
+
+
+/*
+ * Estado hover do botão da topbar.
+ */
+.topbar-actions button:hover {
+  background: var(--color-surface);
+  color: var(--color-text);
+}
+
+
+/*
+ * `.main-content`
+ *
+ * Define a largura máxima do conteúdo.
+ *
+ * `min(1180px, 100%)`
+ * Usa no máximo 1180px, mas nunca ultrapassa
+ * a largura disponível.
+ *
+ * `margin: 0 auto`
+ * Centraliza o conteúdo horizontalmente.
+ */
+.main-content {
+  width: min(1180px, 100%);
+
+  margin: 0 auto;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+/*
+ * `.hero-section`
+ *
+ * Primeira área de destaque do Style Guide.
+ *
+ * `clamp`
+ * Faz o espaçamento se adaptar ao tamanho da tela.
+ */
+.hero-section {
+  padding: clamp(4rem, 8vw, 8rem) var(--space-8);
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/*
+ * `.eyebrow`, `.section-index`, `.overview-label`
+ *
+ * Compartilham o mesmo estilo porque funcionam
+ * como pequenas informações auxiliares.
+ */
+.eyebrow,
+.section-index,
+.overview-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+
+/*
+ * Título principal do Hero.
+ *
+ * `clamp` permite que o tamanho seja responsivo.
+ */
+.hero-section h1 {
+  max-width: 760px;
+
+  margin: var(--space-4) 0 var(--space-4);
+
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+
+/*
+ * Texto introdutório do Hero.
+ */
+.hero-section p {
+  max-width: 640px;
+
+  margin: 0;
+
+  color: var(--color-text-muted);
+
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-body);
+}
+
+
+/* =========================================================
+   OVERVIEW
+   ========================================================= */
+
+/*
+ * `.overview-grid`
+ *
+ * Grid usado para apresentar os quatro blocos
+ * introdutórios do Style Guide.
+ */
+.overview-grid {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/*
+ * `.overview-card`
+ *
+ * Cada bloco da área de overview.
+ */
+.overview-card {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: var(--space-8);
+
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/*
+ * Remove a borda direita dos cards da segunda coluna.
+ */
+.overview-card:nth-child(even) {
+  border-right: 0;
+}
+
+
+/*
+ * Remove a borda inferior dos dois últimos cards.
+ */
+.overview-card:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+
+/*
+ * Título dos cards de overview.
+ */
+.overview-card h2 {
+  margin: var(--space-2) 0 var(--space-2);
+
+  font-size: var(--font-size-xl);
+}
+
+
+/*
+ * Texto dos cards de overview.
+ */
+.overview-card p {
+  max-width: 360px;
+
+  margin: 0;
+
+  color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   SEÇÕES DE CONTEÚDO
+   ========================================================= */
+
+/*
+ * `.content-section`
+ *
+ * Estrutura base de cada seção do Style Guide.
+ */
+.content-section {
+  padding: var(--space-12) var(--space-8);
+
+  border-bottom: 1px solid var(--color-border);
+}
+
+
+/*
+ * `.section-heading`
+ *
+ * Organiza o número da seção e o título.
+ *
+ * A primeira coluna possui 64px para o índice.
+ */
+.section-heading {
+  display: grid;
+
+  grid-template-columns: 64px 1fr;
+
+  gap: var(--space-6);
+
+  margin-bottom: var(--space-8);
+}
+
+
+/*
+ * Título da seção.
+ */
+.section-heading h2 {
+  margin: 0 0 var(--space-2);
+
+  font-size: var(--font-size-2xl);
+}
+
+
+/*
+ * Descrição da seção.
+ */
+.section-heading p {
+  margin: 0;
+
+  color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   GRIDS DE COMPONENTES
+   ========================================================= */
+
+/*
+ * `.component-preview`
+ *
+ * Grid genérico usado para apresentar componentes
+ * e elementos do Style Guide.
+ *
+ * Por padrão, cria cinco colunas.
+ */
+.component-preview {
+  display: grid;
+
+  grid-template-columns: repeat(5, 1fr);
+
+  gap: var(--space-3);
+}
+
+.type-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*
+ * `.component-preview-shadows`
+ *
+ * Grid específico para a demonstração de sombras.
+ *
+ * Mantemos uma classe separada para permitir
+ * ajustes específicos no futuro.
+ */
+.component-preview-shadows {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: var(--space-4);
+}
+
+
+/* =========================================================
+   CORES
+   ========================================================= */
+
+/*
+ * `.color-preview`
+ *
+ * Caixa visual usada para demonstrar cada token de cor.
+ */
+.color-preview {
+  height: 140px;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+
+/*
+ * Cada classe abaixo conecta uma demonstração
+ * visual a um token de cor.
+ */
+.color-preview.background {
+  background: var(--color-background);
+}
+
+.color-preview.surface {
+  background: var(--color-surface);
+}
+
+.color-preview.elevated {
+  background: var(--color-surface-elevated);
+}
+
+.color-preview.text {
+  background: var(--color-text);
+}
+
+.color-preview.muted {
+  background: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   TIPOGRAFIA
+   ========================================================= */
+
+/*
+ * `.type-preview`
+ *
+ * Área de demonstração da tipografia.
+ *
+ * Usa `surface` para criar uma camada visual
+ * ligeiramente acima do background.
+ */
+.type-preview {
+  padding: var(--space-8);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+
+  background: var(--color-surface);
+}
+
+
+/*
+ * Label acima do exemplo tipográfico.
+ */
+.type-preview-label {
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+
+  letter-spacing: var(--letter-spacing-wide);
+  text-transform: uppercase;
+}
+
+
+/*
+ * Título do exemplo tipográfico.
+ */
+.type-preview h3 {
+  max-width: 800px;
+
+  margin: var(--space-6) 0 var(--space-4);
+
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: var(--line-height-tight);
+}
+
+
+/*
+ * Texto do exemplo tipográfico.
+ */
+.type-preview p {
+  max-width: 680px;
+
+  margin: 0;
+
+  color: var(--color-text-muted);
+}
+
+
+/* =========================================================
+   ESPAÇAMENTO
+   ========================================================= */
+
+/*
+ * `.spacing-preview`
+ *
+ * Organiza verticalmente os exemplos da escala
+ * de espaçamento.
+ */
+.spacing-preview {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--space-3);
+}
+
+
+/*
+ * `.spacing-row`
+ *
+ * Cada linha apresenta:
+ *
+ * espaço-1 | barra visual
+ *
+ * `grid-template-columns`
+ * Reserva 100px para o nome do token.
+ */
+.spacing-row {
+  display: grid;
+
+  grid-template-columns: 100px 1fr;
+
+  align-items: center;
+
+  gap: var(--space-4);
+
+  color: var(--color-text-muted);
+
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+
+/*
+ * `.spacing-bar`
+ *
+ * Representação visual do tamanho de cada espaçamento.
+ */
+.spacing-bar {
+  min-width: 4px;
+
+  height: 16px;
+
+  border-radius: var(--radius-sm);
+
+  background: var(--color-text);
+}
+
+
+/* =========================================================
+   AÇÕES
+   ========================================================= */
+
+/*
+ * `.component-preview-actions`
+ *
+ * Usado quando os componentes precisam ficar
+ * lado a lado, como os diferentes tipos de botão.
+ *
+ * `flex-wrap`
+ * Permite que os botões quebrem para outra linha
+ * em telas menores.
+ */
+.component-preview-actions {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: var(--space-3);
+}
+
+
+/* =========================================================
+   FORMULÁRIOS
+   ========================================================= */
+
+/*
+ * `.form-preview`
+ *
+ * Limita a largura do exemplo de formulário
+ * para manter os campos confortáveis de ler e usar.
+ */
+.form-preview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  max-width: 480px;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — TABLETS
+   ========================================================= */
+
+/*
+ * Quando a tela possui até 900px:
+ *
+ * - A sidebar fica menor.
+ * - Os previews passam de cinco para três colunas.
+ */
+@media (max-width: 900px) {
+  .app-shell {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .component-preview,
+  .component-preview-shadows {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE
+   ========================================================= */
+
+/*
+ * Até 700px:
+ *
+ * - O layout deixa de usar duas colunas.
+ * - A sidebar passa a ocupar a largura inteira.
+ * - A navegação lateral é escondida.
+ */
+@media (max-width: 700px) {
+  .app-shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: static;
+
+    height: auto;
+
+    border-right: 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .sidebar-nav {
+    display: none;
+  }
+
+  .sidebar-footer {
+    display: none;
+  }
+
+
+  /*
+   * Reduz o padding da topbar.
+   */
+  .topbar {
+    padding: 0 var(--space-4);
+  }
+
+  .topbar-search {
+    width: 200px;
+  }
+
+
+  /*
+   * Reduz o padding lateral das seções.
+   */
+  .hero-section,
+  .content-section {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+
+
+  /*
+   * Overview passa de duas colunas para uma.
+   */
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-card,
+  .overview-card:nth-child(even) {
+    border-right: 0;
+  }
+
+  .overview-card:nth-last-child(-n + 2) {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .overview-card:last-child {
+    border-bottom: 0;
+  }
+
+
+  /*
+   * O cabeçalho da seção passa de duas colunas
+   * para uma coluna.
+   */
+  .section-heading {
+    grid-template-columns: 1fr;
+
+    gap: var(--space-2);
+  }
+
+
+  /*
+   * Componentes passam para duas colunas.
+   */
+  .component-preview,
+  .component-preview-shadows {
+  grid-template-columns: 1fr;
+}
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE — MOBILE PEQUENO
+   ========================================================= */
+
+/*
+ * Até 480px:
+ *
+ * - Search ocupa o espaço disponível.
+ * - Componentes passam para uma coluna.
+ * - O título principal fica menor.
+ */
+@media (max-width: 480px) {
+  .topbar-search {
+    width: auto;
+
+    flex: 1;
+
+    margin-right: var(--space-3);
+  }
+
+  .component-preview {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+}

@@ -1,0 +1,36 @@
+
+.typography-scale {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.typography-scale-info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.typography-scale-name {
+  color: var(--color-text);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.typography-scale-value {
+  color: var(--color-text-muted);
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-xs);
+}
+
+.typography-scale-sample {
+  margin: 0;
+  font-family: var(--font-family-serif);
+  line-height: var(--line-height-heading);
+  overflow-wrap: anywhere;
+}
