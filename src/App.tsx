@@ -3,11 +3,11 @@ import Card from './components/Card/Card'
 import Input from './components/Input/Input'
 import Field from './components/Field/Field'
 import Textarea from './components/Textarea/Textarea'
-import RadiusScale from './components/RadiusScale/RadiusScale'
-import ShadowScale from './components/ShadowScale/ShadowScale'
-import ColorSwatch from './components/ColorSwatch/ColorSwatch'
-import SpacingScale from './components/SpacingScale/SpacingScale'
-import TypographyScale from './components/TypographyScale/TypographyScale'
+import RadiusScale from './components/StyleGuide/RadiusScale/RadiusScale'
+import ShadowScale from './components/StyleGuide/ShadowScale/ShadowScale'
+import ColorSwatch from './components/StyleGuide/ColorSwatch/ColorSwatch'
+import SpacingScale from './components/StyleGuide/SpacingScale/SpacingScale'
+import TypographyScale from './components/StyleGuide/TypographyScale/TypographyScale'
 
 function App() {
   return (
