@@ -81,3 +81,16 @@
   font-size: var(--font-size-lg);
 }
 
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+
+  .button:hover:not(:disabled),
+  .button:active:not(:disabled) {
+    transform: none;
+  }
+}
+
+

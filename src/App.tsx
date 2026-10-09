@@ -79,17 +79,20 @@ function App() {
       </aside>
 
       <div className="app-content">
+        
         <header className="topbar">
+          {/*}
           <div className="topbar-search">
             <span>Buscar no Style Guide</span>
             <kbd>Ctrl K</kbd>
           </div>
-
+          
           <div className="topbar-actions">
             <button type="button" aria-label="Alternar tema">
               ◐
             </button>
           </div>
+          */}
         </header>
 
         <main className="main-content">

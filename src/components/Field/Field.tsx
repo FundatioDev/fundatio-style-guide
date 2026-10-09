@@ -36,20 +36,18 @@ function Field({
   const messageId = `${inputId}-message`
   const message = error || description
 
-  const control = children
-    ? isValidElement(children)
-      ? cloneElement(
-          children as ReactElement<FieldControlProps>,
-          {
-            id: inputId,
-            name,
-            error: Boolean(error),
-            'aria-describedby': message ? messageId : undefined,
-            'aria-invalid': error ? true : undefined,
-          },
-        )
-      : children
-    : (
+  const control = isValidElement(children)
+    ? cloneElement(
+        children as ReactElement<FieldControlProps>,
+        {
+          id: inputId,
+          name,
+          error: Boolean(error),
+          'aria-describedby': message ? messageId : undefined,
+          'aria-invalid': error ? true : undefined,
+        },
+      )
+    : children ?? (
         <Input
           id={inputId}
           name={name}
