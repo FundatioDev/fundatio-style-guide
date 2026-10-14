@@ -13,13 +13,15 @@
     "emitDeclarationOnly": true,
     "rootDir": "./src",
     "outDir": "./dist/types",
-    "noEmit": false
+    "noEmit": false,
+    "types": ["vitest/globals", "@testing-library/jest-dom"]
   },
   "include": [
     "src/components/index.ts",
     "src/components/**/*.ts",
     "src/components/**/*.tsx",
-    "src/styles/assets.d.ts"
+    "src/styles/assets.d.ts",
+    "src/test/setup.ts"
   ],
   "exclude": ["src/components/StyleGuide"]
 }
