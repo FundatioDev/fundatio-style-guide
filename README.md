@@ -99,3 +99,71 @@ O que precisamos estabelecer antes de começar a construir?
 Fundamentos primeiro, componentes depois, produtos por último.
 
 **Fundamentos antes da forma.**
+
+# FUNDATIO UI
+
+Biblioteca de componentes reutilizáveis da FUNDATIO, desenvolvida com React, TypeScript e CSS.
+
+## Instalação
+
+```bash
+npm install @fundatio/ui
+```
+
+## Configuração
+
+Importe os estilos da biblioteca no arquivo principal da aplicação:
+
+```tsx
+import '@fundatio/ui/style.css'
+```
+
+## Componentes disponíveis
+
+- `Button` — botão com variantes e tamanhos.
+- `Card` — cartão com cabeçalho, corpo e rodapé.
+- `Field` — campo com label, descrição e mensagem de erro.
+- `Input` — campo de entrada de dados.
+- `Textarea` — campo de texto multilinha.
+
+## Exemplo de uso
+
+```tsx
+import { Button, Card, Field, Input, Textarea } from '@fundatio/ui'
+import '@fundatio/ui/style.css'
+
+function App() {
+  return (
+    <Card>
+      <Card.Header>Cadastro</Card.Header>
+
+      <Card.Body>
+        <Field label="Nome" name="name">
+          <Input placeholder="Digite seu nome" />
+        </Field>
+
+        <Field label="Mensagem" name="message">
+          <Textarea placeholder="Digite sua mensagem" />
+        </Field>
+      </Card.Body>
+
+      <Card.Footer>
+        <Button>Salvar</Button>
+      </Card.Footer>
+    </Card>
+  )
+}
+
+export default App
+```
+
+## Tecnologias
+
+- React
+- TypeScript
+- Vite
+- CSS
+
+## Licença
+
+MIT
