@@ -20,8 +20,13 @@
     "src/components/index.ts",
     "src/components/**/*.ts",
     "src/components/**/*.tsx",
-    "src/styles/assets.d.ts",
-    "src/test/setup.ts"
+    "src/styles/assets.d.ts"
+    
   ],
-  "exclude": ["src/components/StyleGuide"]
+  "exclude": [
+    "src/components/StyleGuide",
+    "src/**/*.test.ts",
+    "src/**/*.test.tsx",
+    "src/test"
+  ]
 }
